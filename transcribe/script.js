@@ -143,38 +143,16 @@ editButton.addEventListener('click', () => {
         outputDiv.setAttribute('contenteditable', 'true');
         outputDiv.classList.add('editing');
         outputDiv.focus();
-        editButton.textContent = 'Lưu';
+        editButton.innerHTML = '<img src="./check.png" alt="icon" style="width: 30px; height: 30px;">';
     } else {
         // Tắt chế độ chỉnh sửa và lưu nội dung
         outputDiv.setAttribute('contenteditable', 'false');
         outputDiv.classList.remove('editing');
-        editButton.textContent = 'Chỉnh sửa';
+        editButton.innerHTML = '<img src="./edit-text.png" alt="icon" style="width: 35px; height: 35px;">';
         // Cập nhật finalTranscript
         finalTranscript = outputDiv.innerHTML;
     }
 });
-
-// CSS để hiển thị trạng thái chỉnh sửa
-const style = document.createElement('style');
-style.textContent = `
-    .outputText {
-        min-height: 100px;
-        padding: 10px;
-        margin: 10px 0;
-        line-height: 1.5;
-    }
-
-    .outputText.editing {
-        border: 1px solid #722ee7;
-        border-radius: 5px;
-        outline: none;
-    }
-
-    .outputText.editing:focus {
-        box-shadow: 0 0 5px rgba(114, 46, 231, 0.3);
-    }
-`;
-document.head.appendChild(style);
 
 // Handle errors
 recognition.onerror = (event) => {
