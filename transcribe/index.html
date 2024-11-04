@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Miles AI</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <img src="./logo.png" width="100px", height="100px" class = "logo">
+      <div class="divider"></div>
+      <button class="user-dropdown">
+        Welcome, user
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="divider"></div>
+      <nav class="nav-list">
+        <button class="nav-item active" onclick="window.location.href='../transcribe/index.html'">
+          <img src="./microphone-active.png" class="nav-icon" alt="Mic Icon">
+          <span>Record</span>
+        </button>
+        
+        <button class="nav-item" onclick="window.location.href='../quizz/index.html'">
+          <img src="./quizz.png" class="nav-icon quizz" alt="Help Icon">
+          <span>Quizz</span>
+        </button>
+        
+        <button class="nav-item" onclick="window.location.href='../summary/index.html'">
+          <img src="./writing.png" class="nav-icon" alt="File Text Icon">
+          <span>Summary</span>
+        </button>
+          
+          <button class="nav-item" onclick="window.location.href='../chatbot/index.html'">
+            <img src="./AI.png" class="nav-icon" alt="CPU Icon">
+            <span>Miles AI</span>
+          </button>
+          <button class="nav-item" onclick="window.location.href='../roadmap/index.html'">
+            <img src="./roadmap.png" class="nav-icon" alt="Roadmap Icon">
+            <span>Roadmap</span>
+          </button>
+          
+          <div class="divider"></div>
+          
+          <button class="nav-item">
+            <img src="./settings.png" class="nav-icon" alt="Settings Icon">
+            <span>Settings</span>
+          </button>
+          
+          
+      </nav>
+
+      <button class="back-btn">
+        <img src="./collapse.png" class="nav-icon collapse" alt="Settings Icon">
+      </button>
+    </aside>
+
+    <div class="content-wrapper">
+      <!-- Header Bar -->
+      <div class="header-bar">
+        <h2 class="header-title">Transcribe</h2>
+      </div>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <p class="title">Transcribe Meetings</p>
+        <div id="output" class="outputText" contenteditable="false"></div>
+        <div class="footer-bar">
+            <!-- Control buttons -->
+            <div class="footer-controls" >
+              <button id="startButton" class = "footer-buttons">
+                <img src="./record.png" alt="icon" style="width: 35px; height: 35px;">
+              </button>
+            </div>
+    
+            <!-- Progress bar and timer -->
+            <div class="progress">
+                <div class="timer" id = "timer">0:00</div>
+                <div class="divider2"></div>
+            </div>
+    
+            <!-- Extra buttons -->
+            <div class="footer-controls">
+              <button id="editButton" class = "footer-buttons">
+                <img src="./edit-text.png" alt="icon" style="width: 30px; height: 30px;">
+              </button>
+              <button id="fixTextButton" class = "footer-buttons">
+                <img src="./star.png" alt="icon" style="width: 30px; height: 30px;">
+              </button>
+              <button id="clearButton" class = "footer-buttons">
+                <img src="./broom.png" alt="icon" style="width: 30px; height: 30px;">
+              </button>
+              <button id="editButton" class = "footer-buttons">
+                <img src="./copy.png" alt="icon" style="width: 30px; height: 30px;">
+              </button>
+            </div>
+        </div>
+    
+        
+    </main>
+
+      <!-- Settings Panel -->
+      <aside class="settings-panel">
+        <div class="settings-header">
+            <img src="./settings_gear.png" class="nav-icon setting" alt="Help Icon">
+            <span>Settings</span>
+        </div>
+      
+      <div class="settings-section">
+          <p>Transcribe language</p>
+          <select id="languageSelect" class="settings-select">
+            <option value="vi-VN">Tiếng Việt</option>
+            <option value="en-US">English</option>
+            <option value="ja-JP">日本語</option>
+            <option value="ko-KR">한국어</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+          </select>
+      </div>
+      
+      <div class="settings-section">
+          <p>Assistant Language</p>
+          <select class="settings-select">
+            <option value="user input language">Automatic</option>
+            <option value="Vietnamese">Tiếng Việt</option>
+            <option value="English">English</option>
+            <option value="Japanese">日本語</option>
+            <option value="Korean">한국어</option>
+            <option value="Simplified Chinese">中文 (简体)</option>
+            <option value="Traditional Chinese">中文 (繁體)</option>
+          </select>
+      </div>
+      <div class="divider"></div>
+      <div class="chat-container">
+        <div class="chat-header">
+            <span>Miles AI Bot</span>
+            <span id="statusIndicator"></span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="prompt-buttons">
+            <button class="prompt-button" onclick="sendPrompt('Catch me up the conversation')">Catch me up the conversation</button>
+            <button class="prompt-button" onclick="sendPrompt('Explain the knowledge teacher just said')">Explain the knowledge teacher just said</button>
+        </div>
+        
+        <div class="chat-input-container">
+            <textarea 
+                id="chatInput" 
+                placeholder="Message Miles AI" 
+                rows="3 "
+            ></textarea>
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    </aside>
+    </div>
+  </div>
+
+</body>
+</html>

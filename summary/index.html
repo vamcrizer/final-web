@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Miles AI</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <img src="./logo.png" width="100px", height="100px" class = "logo">
+      <div class="divider"></div>
+      <button class="user-dropdown">
+        Welcome, user
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="divider"></div>
+      <nav class="nav-list">
+        <button class="nav-item" onclick="window.location.href='../transcribe/index.html'">
+            <img src="./microphone.png" class="nav-icon" alt="Mic Icon">
+            <span>Record</span>
+          </button>
+          
+          <button class="nav-item" onclick="window.location.href='../quizz/index.html'">
+            <img src="./quizz.png" class="nav-icon quizz" alt="Help Icon">
+            <span>Quizz</span>
+          </button>
+          
+          <button class="nav-item active" onclick="window.location.href='../transcribe/index.html'">
+            <img src="./writing-active.png" class="nav-icon" alt="File Text Icon">
+            <span>Summary</span>
+          </button>
+
+          <button class="nav-item" onclick="window.location.href='../chatbot/index.html'">
+            <img src="./AI.png" class="nav-icon" alt="CPU Icon">
+            <span>Miles AI</span>
+          </button>
+          <button class="nav-item" onclick="window.location.href='../roadmap/index.html'">
+            <img src="./roadmap.png" class="nav-icon" alt="Roadmap Icon">
+            <span>Roadmap</span>
+          </button>
+          
+          <div class="divider"></div>
+          
+          <button class="nav-item">
+            <img src="./settings.png" class="nav-icon" alt="Settings Icon">
+            <span>Settings</span>
+          </button>
+          
+      </nav>
+
+      <button class="back-btn">
+        <img src="./collapse.png" class="nav-icon collapse" alt="Settings Icon">
+      </button>
+    </aside>
+
+    <div class="content-wrapper">
+      <!-- Header Bar -->
+      <div class="header-bar">
+        <h2 class="header-title">Summary</h2>
+      </div>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="tab-container">
+            <div class="tabs">
+              <button class="tab active" id="document-tab">Document</button>
+              <button class="tab" id="text-tab">Text</button>
+            </div>
+        </div>
+    
+        <div class="upload-container" id="document-container">
+          <div class="file-upload" id="upload-area">
+            <label for = "file-input">
+              <div> 
+                Drop your PDF document here or click to browse
+            </div>
+            </label>
+              <input type="file" id="file-input" accept=".pdf,.doc,.docx" />
+          </div>
+
+          <div id="file-info" class="file-info"></div>
+          <div id="error-message"></div>
+          
+          <textarea class="summary-output" id="summary-output" readonly></textarea>
+          
+          <div class="loading" id="loading" style="display:none">
+              <div class="spinner"></div>
+              <div class="loading-text">Processing document...</div>
+          </div>
+          <button class="summarize-button" id="summarize-btn" style="display: none;">Summarize</button>
+
+      </div>
+      
+    
+        <div class="text-input-container" id="text-container" style="display: none;">
+            <label for="text-input" id = "reminder">Enter your document:</label>
+            <textarea id="text-input" class="text-input" rows="5" placeholder="Enter anything..."></textarea>          
+            <div id="error-message1"></div>
+
+            <textarea class="summary-output" id="summary-output1" readonly></textarea>
+
+            <div class="loading" id="loading1" style="display: none;">
+                <div class="spinner"></div>
+                <div class="loading-text1">Processing...</div>
+            </div>
+
+            <button class="summarize-button" id ="summarize-text">Summarize</button>
+        </div>
+    </main>
+
+      <!-- Settings Panel -->
+      <aside class="settings-panel">
+        <div class="settings-header">
+            <img src="./settings_gear.png" class="nav-icon setting" alt="Help Icon">
+            <span>Settings</span>
+        </div>
+    
+        <!-- <div class="settings-section">
+          <p class="quizz-number">Summary language</p>
+          <select id="quiz-count" class="settings-select">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+          </select>
+      </div> -->
+      
+      <div class="settings-section">
+          <p class="settings-section">Summary language</p>
+          <select id="summary-language" class="settings-select">
+              <option value="english">English</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="spanish">Spanish</option>
+          </select>
+      </div>
+      
+      <div class="settings-section">
+          <p class="settings-label">Model Select</p>
+          <select class="settings-select" id="model-select">
+              <option value="short">Short</option>
+              <option value="medium">Medium</option>
+              <option value="long">Long</option>
+          </select>
+      </div>
+    </aside>
+    </div>
+  </div>
+
+</body>
+</html>
