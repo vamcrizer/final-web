@@ -281,7 +281,6 @@
   /* Main Content */
   .main-content {
     flex: 1;
-    margin-top: 50px;
     flex-direction: column;
     transition: 0.3s;
     background: #f9fafb;
