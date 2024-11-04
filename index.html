@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="flex justify-center px-20 pt-4 pb-20">
+        <div class="navbar">
+            <div class="navbar-content">
+                <div class="nav-items">
+                    <a href="#" class="nav-link">Features</a>
+                    <a href="#" class="nav-link">Pricing</a>
+                    <a href="#" class="nav-link">Blog</a>
+                    <a href="#" class="nav-link">FAQ</a>
+                </div>
+                <div class="nav-right">
+                    <div class="divider"></div>
+                    <button class="get-started-btn" onclick="gotoHome()">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <div class="main-content">
+        <p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 64px; color: rgba(33, 55, 86, 1); position: relative;">
+            The #1 
+            <span style="color: #8B48FF; position: relative; display: inline-block;">
+                AI Study
+                <span style="content: ''; position: absolute; left: 0px; bottom: 10px; width: 100%; height: 47px; background-color: rgba(154, 200, 250, 0.534); border-radius: 35px; z-index: -1; transform: rotate(-4deg); transform-origin: left bottom;"></span>
+            </span> 
+            Assistant ✨
+        </p>
+        
+        
+        <br>
+        <p style="font-family: 'Poppins', sans-serif; font-weight: 300 ;font-size: 16px;">Start taking notes smarter with AI transcriber, turning your notes into interactive quizzes.</p>
+        <p style="font-family: 'Poppins', sans-serif; font-weight: 300 ;font-size: 16px;">Elevate your study experience with more powerful tools.</p>
+        <br><br>
+        <div class="purple px-10 py-5 justify-center items-center rounded-[32px] text-white">
+                <button style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px"onclick="gotoHome()" >Start for Free</button>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div class="flex-container">
+        <div class="box">
+            <div class="container">
+                <h2 class="problem-title" style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 17px;">❗️Problem❗️</h2>
+                <p class="problem-header" style="font-family: 'Poppins', sans-serif; font-weight: 500">70% of students waste time due to  <br>
+                    ineffective study techniques</h1>
+                <p class="problem-description" style="font-family: 'Poppins', sans-serif; font-weight: 300">
+                    With typical study methods, students who are overloaded with information often experience low retention, tension, and burnout.
+                </p>
+                <div class="problems">
+                    <div class="problem">
+                        <div class="icon note"></div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-weight: 400; font-size: large;">Overloaded tasks</h3>
+                        <p style="font-family: 'Poppins', sans-serif; font-weight: 300">Possessing mountains of notes, students find it difficult to properly arrange and go over them.</p>
+                    </div>
+                    <div class="problem">
+                        <div class="icon brain"></div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-weight: 400; font-size: large;">Low Retention Rates</h3>
+                        <p style="font-family: 'Poppins', sans-serif; font-weight: 300">Students sometimes only recall a small amount of what they study after hours.</p>
+                    </div>
+                    <div class="problem">
+                        <div class="icon tired"></div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-weight: 400; font-size: large;">High levels of stress and exhaustion</h3>
+                        <p style="font-family: 'Poppins', sans-serif; font-weight: 300">Students who employ ineffective study techniques become frustrated and feel unprepared.</p>
+                    </div>
+                </div>
+                <br><br>
+                <h2 class="solution-title" style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 17px;">💡Solution💡</h2>
+                <h1 class="solution-header" style="font-family: 'Poppins', sans-serif; font-weight: 500">Enhance your study session</h1>
+                <p class="solution-description" style="font-family: 'Poppins', sans-serif; font-weight: 300">
+                    Create interesting, interactive quizzes from your notes to increase confidence and recall. Ensuring you to study more effectively and easily.
+                </p>
+            </div>
+            <br>
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-image rounded-[15px]"></div>
+                    <div class="feature-content">
+                        <h2 class="title">
+                            <span class="text-black">Never miss a detail with</span>
+                            <span class="text-purple">AI voice</span>
+                            <span class="text-purple">transcriber</span>
+                        </h2>
+                        <p class="description">
+                            Our AI can seamlessly record lectures and meetings,
+                            automatically taking notes to ensure you don't miss 
+                            any details while focusing on other tasks.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="feature">
+                    <div class="feature-image rounded-[15px]"></div>
+                    <div class="feature-content">
+                        <h2 class="title">
+                            <span class="text-purple">Summarize lectures</span>
+                            <span class="text-black">within seconds</span>
+                        </h2>
+                        <p class="description">
+                            Prolonged lectures and meetings but can't remember
+                            anything? Our AI generate lecture's summary within
+                            seconds so you don't have to review everything.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="feature">
+                    <div class="feature-image rounded-[15px]"></div>
+                    <div class="feature-content">
+                        <h2 class="title">
+                            <span class="text-purple">Summarize documents</span>
+                            <span class="text-black">within clicks</span>
+                        </h2>
+                        <p class="description">
+                            Let our document summarization feature turn dense lengthy documents
+                            into concise, easily digestible summaries, ensuring you capture all
+                            the essential information without the overwhelm!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="nav_scroll.js"></script>
+    <br><br><br><br>
+    <div class="pricing">
+        <p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 40px; color: rgba(33, 55, 86, 1); position: relative;">
+            Get 
+            <span style="color: #8B48FF; position: relative; display: inline-block;">
+                Miles AI
+                <span style="content: ''; position: absolute; left: 0px; bottom: 3px; width: 100%; height: 47px; background-color: rgba(154, 200, 250, 0.534); border-radius: 35px; z-index: -1; transform: rotate(-4deg); transform-origin: left bottom;"></span>
+            </span> 
+            today
+        </p>
+        <br>
+        <div class = "pricing_box">
+            <div class="container_pricing">
+                <p style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 24px; color: rgba(33, 55, 86, 1);">Free</p>
+            </div>
+            <div class ="free" style="text-align: left;">
+                <p style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 16px; color: rgba(33, 55, 86, 1);">Early access to all features of <br> Miles AI with no cost.</p>
+                <span style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 28px; color: rgba(33, 55, 86, 1);">$0</span>
+                <span style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 14px; color: rgba(33, 55, 86, 1);"> USD</span>
+                <p style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 12px; color: rgba(33, 55, 86, 1);">monthly</p>
+            </div>
+            <div class="justify-center px-2 py-2 items-center rounded-[15px]">
+                <button style="font-family: 'Nunito', sans-serif; font-weight: 400; font-size: 18px; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 15px; padding: 3px 70px;" onclick="gotoHome()">Sign up</button>
+            </div>
+            <div class = "list text-align: left">
+                <ul>
+                    <li>Basic AI models</li>
+                    <li>Lecture summarization</li>
+                    <li>PDF summarization</li>
+                    <li>20 quizzes per session</li>
+                    <li>Unlimited ChatGPT</li>
+                </ul>
+            </div>
+            </div>
+            <br><br><br>
+            <div class="flex-faq justify-center">
+                <div class="faq-box justify-center">
+                    <h1 style="font-family: 'Poppins';font-weight: 600; font-size: 35px; color: rgba(33, 55, 86, 1);">Frequently Asked Questions</h1>
+                    <p style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 15px; color: rgba(33, 55, 86, 1);">See questions other people also ask</p>
+                    <br>
+                    <div class="faq-container">
+                        <div class="faq-button">
+                            <span class="toggle-icon">+</span>
+                            <p style="font-family: 'Poppins';font-weight: 400; font-size: 15px; color: rgba(33, 55, 86, 1);">Does Miles AI cost?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p style="font-family: 'Poppins';font-weight: 300; font-size: 15px; color: rgba(33, 55, 86, 1);">No. Miles AI is free to use for now.</p>
+                        </div>
+                    </div>
+        
+                    <div class="faq-container">
+                        <div class="faq-button">
+                            <span class="toggle-icon">+</span>
+                            <p style="font-family: 'Poppins';font-weight: 400; font-size: 15px; color: rgba(33, 55, 86, 1);">How can I contact customer support?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p style="font-family: 'Poppins';font-weight: 300; font-size: 15px; color: rgba(33, 55, 86, 1);">You can reach our customer support team via email at: hoanganhvu1890z@gmail.com</p>
+                        </div>
+                    </div>
+        
+                    <div class="faq-container">
+                        <div class="faq-button">
+                            <span class="toggle-icon">+</span>
+                            <p style="font-family: 'Poppins';font-weight: 400; font-size: 15px; color: rgba(33, 55, 86, 1);">What are your business hours?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p style="font-family: 'Poppins';font-weight: 300; font-size: 15px; color: rgba(33, 55, 86, 1);">Our business hours are Monday to Friday, 9 AM to 5 PM EST. We are closed on weekends and major holidays.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                function gotoHome(){
+                    window.location.href = '../transcribe/index.html'
+                }
+                document.querySelectorAll('.faq-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        button.classList.toggle('active');
+                    });
+                });
+            </script>
+        <br><br><br><br><br><br>
+
+        <div class="scroll-to-top">↑</div>
+
+    <script>
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <footer class="footer"></footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Miles AI</h3>
+                <p>Elevate your study experience with AI-powered tools. Transform the way you learn with smart transcription, summarization, and interactive quizzes.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Updates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miles AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
