@@ -1,0 +1,459 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --text-color: #FFFFFF;
+  --icon-color: #ACACBE;
+  --icon-hover-bg: #5b5e71;
+  --placeholder-color: #dcdcdc;
+  --outgoing-chat-bg: #343541;
+  --incoming-chat-bg: #444654;
+  --outgoing-chat-border: #343541;
+  --incoming-chat-border: #444654;
+}
+.light-mode {
+  --text-color: #343541;
+  --icon-color: #a9a9bc;
+  --icon-hover-bg: #f1f1f3;
+  --placeholder-color: #6c6c6c;
+  --outgoing-chat-bg: #FFFFFF;
+  --incoming-chat-bg: #F7F7F8;
+  --outgoing-chat-border: #FFFFFF;
+  --incoming-chat-border: #D9D9E3;
+}
+body {
+  background: var(--outgoing-chat-bg);
+}
+
+/* Sidebar */
+.sidebar {
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 20;
+}
+
+/* Thêm class collapsed cho sidebar */
+.sidebar.collapsed {
+  width: 70px;
+  padding: 1rem 0.5rem;
+}
+/* Ẩn text khi collapse */
+.sidebar.collapsed .nav-item span,
+.sidebar.collapsed .user-dropdown,
+.sidebar.collapsed span,
+.sidebar.collapsed h1:not(:first-of-type),
+.sidebar.collapsed .divider:not(:first-of-type) {
+display: none;
+}
+
+.logo{
+  width: 100px; /* hoặc kích thước phù hợp với logo của bạn */
+  height: 50px;
+  margin: 0 auto;
+}
+
+.user-dropdown {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+  padding: 1.5rem 1rem;
+  background: #ECECEC;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000000;
+  border: none;
+}
+
+.sidebar.collapsed h1:first-of-type {
+  width: 40px; /* hoặc kích thước phù hợp với logo của bạn */
+  height: 40px;
+  background-image: url('./AI.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  /* Xóa text của h1 */
+  font-size: 0;
+  padding: 0;
+}
+
+.sidebar.collapsed .divider:first-of-type {
+  width: 80%; /* hoặc kích thước phù hợp */
+  margin: 10px auto;
+}
+
+
+/* Căn giữa icon khi collapse */
+.sidebar.collapsed .nav-item {
+justify-content: center;
+padding: 0.75rem 0rem; /* Add vertical padding */
+width: 100%; /* Ensure full width */
+}
+
+.sidebar.collapsed .nav-item i,
+.sidebar.collapsed .nav-item img {
+margin: 0; /* Remove any existing margins */
+display: flex;
+position: relative;
+right: 1px;
+bottom:1px;
+align-items: center;
+justify-content: center;
+width: 24px; /* Set consistent icon size */
+height: 24px;
+}
+
+
+
+/* Xoay nút collapse khi sidebar thu gọn */
+.sidebar.collapsed .back-btn .collapse {
+  transform: rotate(180deg);
+}
+
+.nav-item {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  opacity: 0.6;
+  font-size: 15px;
+  width: 100%;
+  text-align: left;
+  align-items: start;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s;
+  cursor: pointer; /* Hiển thị con trỏ chuột */
+  border: none; /* Xóa bỏ viền mặc định */
+  background: #ffffff; /* Thêm màu nền xám nhạt cho trạng thái bình thường */
+  border-radius: 0.55rem;
+}
+
+/* Trạng thái bình thường của active */
+.nav-item.active {
+  background: #ede9fe; /* Màu tím */
+  color: #7c3aed;
+  opacity: 1;
+  border-radius: 0.55rem;
+  border: none; /* Đảm bảo không có viền khi active */
+}
+
+/* Hover chỉ đổi màu khi không phải là active */
+.nav-item:not(.active):hover {
+  background: #f3f4f6; /* Màu xám nhẹ */
+  opacity: 1;
+  color: #333333;
+  cursor: pointer;
+}
+
+.nav-icon {
+  width: 19px; /* Chỉnh kích thước icon theo nhu cầu */
+  height: 19px;
+  margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+  position: relative;
+  top: 3px; /* Đẩy icon xuống dưới một chút */
+}
+
+.nav-icon.quizz {
+  width: 24x; /* Chỉnh kích thước icon theo nhu cầu */
+  height: 24px;
+  left: -1px;
+}
+
+
+
+.back-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  border: none;
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  margin-top: auto;
+  margin-left: auto;
+}
+.back-btn:hover{
+  background: #f3f4f6; /* Màu xám nhẹ */
+  opacity: 1;
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+
+.divider {
+  height: 5px;
+  width: 100%;   
+  border-top: 1px solid #565656;
+  opacity: 0.2;
+}
+
+/* Chats container styling */
+.chat-container {
+  overflow-y: auto;
+  max-height: 100vh;
+  padding-bottom: 150px;
+}
+:where(.chat-container, textarea)::-webkit-scrollbar {
+  width: 6px;
+}
+:where(.chat-container, textarea)::-webkit-scrollbar-track {
+  background: var(--incoming-chat-bg);
+  border-radius: 25px;
+}
+:where(.chat-container, textarea)::-webkit-scrollbar-thumb {
+  background: var(--icon-color);
+  border-radius: 25px;
+}
+.default-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  padding: 0 10px;
+  text-align: center;
+  color: var(--text-color);
+}
+.default-text h1 {
+  font-size: 3.3rem;
+}
+.default-text p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+.chat-container .chat {
+  padding: 25px 10px;
+  display: flex;
+  justify-content: center;
+  color: var(--text-color);
+}
+.chat-container .chat.outgoing {
+  background: var(--outgoing-chat-bg);
+  border: 1px solid var(--outgoing-chat-border);
+}
+.chat-container .chat.incoming {
+  background: var(--incoming-chat-bg);
+  border: 1px solid var(--incoming-chat-border);
+}
+.chat .chat-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+span.material-symbols-rounded {
+  user-select: none;
+  cursor: pointer;
+}
+.chat .chat-content span {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--icon-color);
+  visibility: hidden;
+}
+.chat:hover .chat-content:not(:has(.typing-animation), :has(.error)) span {
+  visibility: visible;
+}
+.chat .chat-details {
+  display: flex;
+  align-items: center;
+}
+.chat .chat-details img {
+  width: 35px;
+  height: 35px;
+  align-self: flex-start;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.chat .chat-details p {
+  white-space: pre-wrap;
+  font-size: 1.05rem;
+  padding: 0 50px 0 25px;
+  color: var(--text-color);
+  word-break: break-word;
+}
+.chat .chat-details p.error {
+  color: #e55865;
+}
+.chat .typing-animation {
+  padding-left: 25px;
+  display: inline-flex;
+}
+.typing-animation .typing-dot {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  margin: 0 3px;
+  opacity: 0.7;
+  background: var(--text-color);
+  animation: animateDots 1.5s var(--delay) ease-in-out infinite;
+}
+.typing-animation .typing-dot:first-child {
+  margin-left: 0;
+}
+@keyframes animateDots {
+  0%,44% {
+    transform: translateY(0px);
+  }
+  28% {
+    opacity: 0.4;
+    transform: translateY(-6px);
+  }
+  44% {
+    opacity: 0.2;
+  }
+}
+
+/* Typing container styling */
+.typing-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 20px 10px;
+  justify-content: center;
+  background: var(--outgoing-chat-bg);
+  border-top: 1px solid var(--incoming-chat-border);
+}
+.typing-container .typing-content {
+  display: flex;
+  max-width: 950px;
+  width: 100%;
+  align-items: flex-end;
+}
+.typing-container .typing-textarea {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.typing-textarea textarea {
+  resize: none;
+  height: 55px;
+  width: 100%;
+  border: none;
+  padding: 15px 45px 15px 20px;
+  color: var(--text-color);
+  font-size: 1rem;
+  border-radius: 4px;
+  max-height: 250px;
+  overflow-y: auto;
+  background: var(--incoming-chat-bg);
+  outline: 1px solid var(--incoming-chat-border);
+}
+.typing-textarea textarea::placeholder {
+  color: var(--placeholder-color);
+}
+.typing-content span {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  border-radius: 4px;
+  font-size: 1.35rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+}
+.typing-textarea span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+}
+.typing-textarea textarea:valid ~ span {
+  visibility: visible;
+}
+.typing-controls {
+  display: flex;
+}
+.typing-controls span {
+  margin-left: 7px;
+  font-size: 1.4rem;
+  background: var(--incoming-chat-bg);
+  outline: 1px solid var(--incoming-chat-border);
+}
+.typing-controls span:hover {
+  background: var(--icon-hover-bg);
+}
+
+/* Reponsive Media Query */
+@media screen and (max-width: 600px) {
+  .default-text h1 {
+    font-size: 2.3rem;
+  }
+  :where(.default-text p, textarea, .chat p) {
+    font-size: 0.95rem!important;
+  }
+  .chat-container .chat {
+    padding: 20px 10px;
+  }
+  .chat-container .chat img {
+    height: 32px;
+    width: 32px;
+  }
+  .chat-container .chat p {
+    padding: 0 20px;
+  }
+  .chat .chat-content:not(:has(.typing-animation), :has(.error)) span {
+    visibility: visible;
+  }
+  .typing-container {
+    padding: 15px 10px;
+  }
+  .typing-textarea textarea {
+    height: 45px;
+    padding: 10px 40px 10px 10px;
+  }
+  .typing-content span {
+    height: 45px;
+    width: 45px;
+    margin-left: 5px;
+  }
+  span.material-symbols-rounded {
+    font-size: 1.25rem!important;
+  }
+}

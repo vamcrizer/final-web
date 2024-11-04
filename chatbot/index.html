@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Miles AI Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <img src="./logo.png" width="100px", height="100px" class = "logo">
+      <div class="divider"></div>
+      <button class="user-dropdown">
+        Welcome, user
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="divider"></div>
+      <nav class="nav-list">
+        <button class="nav-item" onclick="window.location.href='../transcribe/index.html'">
+          <img src="./microphone.png" class="nav-icon" alt="Mic Icon">
+          <span>Record</span>
+        </button>
+        
+        <button class="nav-item" onclick="window.location.href='../quizz/index.html'">
+          <img src="./quizz.png" class="nav-icon quizz" alt="Help Icon">
+          <span>Quizz</span>
+        </button>
+        
+        <button class="nav-item" onclick="window.location.href='../summary/index.html'">
+          <img src="./writing.png" class="nav-icon" alt="File Text Icon">
+          <span>Summary</span>
+        </button>
+          
+          <button class="nav-item active" onclick="window.location.href='../chatbot/index.html'">
+            <img src="./AI-active.png" class="nav-icon" alt="CPU Icon">
+            <span>Miles AI</span>
+          </button>
+          <button class="nav-item" onclick="window.location.href='../roadmap/index.html'">
+            <img src="./roadmap.png" class="nav-icon" alt="Roadmap Icon">
+            <span>Roadmap</span>
+          </button>
+          <br>
+          <div class="divider"></div>
+          <br>
+          <button class="nav-item">
+            <img src="./settings.png" class="nav-icon" alt="Settings Icon">
+            <span>Settings</span>
+          </button>
+          
+      </nav>
+    </aside>
+    <!-- Chats container -->
+    <div class="chat-container"></div>
+    
+    <!-- Typing container -->
+    <div class="typing-container">
+      <div class="typing-content">
+        <div class="typing-textarea">
+          <textarea id="chat-input" spellcheck="false" placeholder="Enter a prompt here" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+        <div class="typing-controls">
+          <span id="delete-btn" class="material-symbols-rounded">delete</span>
+      </div>
+    </div>
+
+  </body>
+</html>

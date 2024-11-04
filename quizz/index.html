@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Miles AI</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="./script.js" defer></script>
+  <script src="./script2.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <img src="./logo.png" width="100px", height="100px" class = "logo">
+      <div class="divider"></div>
+      <button class="user-dropdown">
+        Welcome, user
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="divider"></div>
+      <nav class="nav-list">
+        <button class="nav-item" onclick="window.location.href='../transcribe/index.html'">
+          <img src="./microphone.png" class="nav-icon" alt="Mic Icon">
+          <span>Record</span>
+        </button>
+        
+        <button class="nav-item active" onclick="window.location.href='../quizz/index.html'">
+          <img src="./quizz-active.png" class="nav-icon quizz" alt="Help Icon">
+          <span>Quizz</span>
+        </button>
+        
+        <button class="nav-item" onclick="window.location.href='../summary/index.html'">
+          <img src="./writing.png" class="nav-icon" alt="File Text Icon">
+          <span>Summary</span>
+        </button>
+          
+          <button class="nav-item" onclick="window.location.href='../chatbot/index.html'">
+            <img src="./AI.png" class="nav-icon" alt="CPU Icon">
+            <span>Miles AI</span>
+          </button>
+          <button class="nav-item" onclick="window.location.href='../roadmap/index.html'">
+            <img src="./roadmap.png" class="nav-icon" alt="Roadmap Icon">
+            <span>Roadmap</span>
+          </button>
+          
+          <div class="divider"></div>
+          
+          <button class="nav-item">
+            <img src="./settings.png" class="nav-icon" alt="Settings Icon">
+            <span>Settings</span>
+          </button>
+          
+      </nav>
+
+      <button class="back-btn">
+        <img src="./collapse.png" class="nav-icon collapse" alt="Settings Icon">
+      </button>
+    </aside>
+
+    <div class="content-wrapper">
+      <!-- Header Bar -->
+      <div class="header-bar">
+        <h2 class="header-title">Quizz</h2>
+      </div>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="tab-container">
+            <div class="tabs">
+              <button class="tab active" id="document-tab">Document</button>
+              <button class="tab" id="text-tab">Text</button>
+            </div>
+        </div>
+    
+        <div class="upload-container" id="document-container">
+          <div class="upload-area" id="drop-area">
+            <label for = "file_input">
+              <div> 
+                Drop your PDF document here or click to browse
+            </div>
+            </label>
+              <input type="file" id="file-input" accept=".pdf,.doc,.docx" />
+          </div>
+          <div id="file-info" class="file-info"></div>
+          <div id="error-message"></div>
+          
+          
+          <div class="loading" id="loading2" style="display:none">
+              <div class="spinner"></div>
+              <div class="loading-text">Processing document...</div>
+          </div>
+          <button class="submit-button" id="quizz-generate2">Generate</button>
+          
+          <div id="quiz-section2" style="display: none;">
+              <div class="progress">
+                  <div>
+                      <span>Question <span id="current-question2">1</span>/<span id="total-questions2">5</span></span>
+                      <div class="progress-bar">
+                          <div class="progress-bar-fill" style="width: 20%"></div>
+                      </div>
+                  </div>
+              </div>
+              <div id="quiz2"></div>
+              <button id="submit-btn2" class="submit-btn">Submit</button>
+              <div id="result2"></div>
+          </div>
+      </div>
+      
+    
+        <div class="text-input-container" id="text-container" style="display: none;">
+            <label for="text-input" id = "reminder">Enter your document:</label>
+            <textarea id="text-input" class="text-input" rows="5" placeholder="Enter anything..."></textarea>
+            <button class="submit-button" id ="quizz-generate">Generate</button>
+            <div id="quiz-section" style="display: none;">
+                <div class="progress">
+                    <div>
+                        <span>Question <span id="current-question">1</span>/<span id="total-questions">5</span></span>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="quiz"></div>
+                <button id="submit-btn" class="submit-btn">Submit</button>
+                <div id="result"></div>
+            </div>
+    
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </main>
+
+      <!-- Settings Panel -->
+      <aside class="settings-panel">
+        <div class="settings-header">
+            <img src="./settings_gear.png" class="nav-icon setting" alt="Help Icon">
+            <span>Settings</span>
+        </div>
+    
+        <div class="settings-section">
+          <p class="quizz-number">Number of quizz</p>
+          <select id="quiz-count" class="settings-select">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+          </select>
+      </div>
+      
+      <div class="settings-section">
+          <p class="settings-section">Quizz language</p>
+          <select id="quiz-language" class="settings-select">
+              <option value="english">English</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="spanish">Spanish</option>
+          </select>
+      </div>
+      
+      <div class="settings-section">
+          <p class="settings-label">Model Select</p>
+          <select class="settings-select">
+              <option value="basic">Basic</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+          </select>
+      </div>
+    </aside>
+    </div>
+  </div>
+
+</body>
+</html>
