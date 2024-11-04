@@ -15,6 +15,11 @@
     background: #fff;
     min-height: 100vh;
   }
+.big-title{
+      font-family: "Poppins", sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+    }
 
   /* Main Container */
   .main-container {
