@@ -454,6 +454,37 @@
   .input-bar{
     font-family: "Poppins", sans-serif;
   }
+  .download-button {
+            display: none; /* Hidden by default, shown after roadmap generation */
+            margin: 2rem auto;
+            padding: 0.75rem 1.5rem;
+            background-color: #7C3AED;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-family: "Poppins", sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #8B48FF;
+        }
+
+        .download-container {
+            text-align: center;
+        }
+
+        @media print {
+            .sidebar, .input-container, .download-container {
+                display: none !important;
+            }
+            
+            .roadmap {
+                margin-left: 300px;
+            }
+        }
 
     </style>
 </head>
@@ -514,8 +545,13 @@
         <div id="roadmap" class="roadmap">
             <svg class="connections" id="connections"></svg>
         </div>
+        <div class="download-container">
+            <button onclick="downloadPDF()" id="downloadButton" class="download-button">
+                Download Roadmap as PDF
+            </button>
+        </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
     async function generateRoadmap() {
     const generateButton = document.getElementById('generateButton');
@@ -541,10 +577,10 @@
                 model: "gpt-4o",
                 messages: [{
                     role: "user",
-                    content: `Do not hallucinate. Create a very long detailed at least 9+ main topics and meets international standard learning roadmap for becoming a ${career}. 
+                    content: `Do not hallucinate. Create a very detailed at least 9+ main topics and meets international standard learning roadmap for becoming a ${career}. 
                 Format the response as a nested list with main topics and their subtopics.
                 Include as many main topics and as many subtopics for each main topic as you want to fully become this career.
-                Return ONLY the JSON with no markdown formatting or explanation. Also make sure to end with "Keep learning and research papers.." . Do not hallucinate. Do not make different as i say: the response should must with { and end with } like this exact format:
+                Return ONLY the JSON with no markdown formatting or explanation. Also make sure to end with "Keep learning and research papers.." . Do not hallucinate. Do not make different as i say. Generate a JSON structured roadmap with the following format... Ensure no additional formatting or text. Return only JSON: The response should must with { and end with } like this exact format:
                 {
                     "title": "${career} Roadmap",
                     "nodes": [
@@ -603,6 +639,7 @@
         generateButton.disabled = false;
         generateButton.style.opacity = '1';
         generateButton.style.cursor = 'pointer';
+        document.getElementById('downloadButton').style.display = 'inline-block';
         document.getElementById('loading').style.display = 'none';
 
     } catch (error) {
@@ -762,7 +799,106 @@ drawConnection(start, end) {
             }
             
         }
+        async function downloadPDF() {
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.disabled = true;
+    downloadButton.textContent = 'Generating PDF...';
+
+    try {
+        const container = document.querySelector('.container');
+        const roadmapSection = document.getElementById('roadmap');
         
+        // Tạo container tạm thời với căn giữa
+        const tempContainer = document.createElement('div');
+        tempContainer.style.width = '100%';
+        tempContainer.style.maxWidth = '1200px'; // Điều chỉnh theo nhu cầu
+        tempContainer.style.margin = '0 auto';
+        tempContainer.style.padding = '20px';
+        tempContainer.style.backgroundColor = 'white';
+        tempContainer.style.display = 'flex';
+        tempContainer.style.flexDirection = 'column';
+        tempContainer.style.alignItems = 'center';
+        
+        const titleClone = document.querySelector('.title').cloneNode(true);
+        titleClone.style.textAlign = 'center';
+        tempContainer.appendChild(titleClone);
+        
+        const roadmapClone = roadmapSection.cloneNode(true);
+        roadmapClone.style.width = '100%';
+        tempContainer.appendChild(roadmapClone);
+        
+        document.body.appendChild(tempContainer);
+        
+
+        // Điều chỉnh main topics
+        const mainTopics = roadmapClone.querySelectorAll('.main-topic');
+        mainTopics.forEach(topic => {
+            topic.style.pageBreakInside = 'avoid';
+            topic.style.marginBottom = '40px'; // Tăng khoảng cách giữa các topic
+            topic.style.position = 'relative';
+            topic.style.left = '50%';
+            topic.style.transform = 'translateX(-50%)';
+            topic.style.width = 'fit-content';
+        });
+
+        // Điều chỉnh subtopics nếu có
+        const subtopics = roadmapClone.querySelectorAll('.subtopic');
+        subtopics.forEach(subtopic => {
+            subtopic.style.marginLeft = '20px';
+            subtopic.style.position = 'relative';
+        });
+
+        const opt = {
+            margin: [20, 20, 20, 20],
+            filename: 'career-roadmap.pdf',
+            image: { 
+                type: 'jpeg', 
+                quality: 1.0 // Tăng chất lượng hình ảnh
+            },
+            html2canvas: { 
+                scale: 2,
+                useCORS: true,
+                logging: true,
+                scrollY: 0,
+                windowWidth: tempContainer.offsetWidth,
+                windowHeight: tempContainer.offsetHeight,
+                onclone: function(clonedDoc) {
+                    // Đảm bảo các styles được áp dụng đúng trong bản sao
+                    const clonedContainer = clonedDoc.querySelector('.container');
+                    if (clonedContainer) {
+                        clonedContainer.style.width = '100%';
+                        clonedContainer.style.margin = '0 auto';
+                    }
+                }
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a2', 
+                orientation: 'portrait',
+                compress: true
+            }
+        };
+
+        await html2pdf().from(tempContainer).set(opt).save().then(() => {
+            downloadButton.disabled = false;
+            downloadButton.textContent = 'Download Roadmap as PDF';
+            document.body.removeChild(tempContainer); // Cleanup
+        }).catch(err => {
+            console.error('PDF generation error:', err);
+            alert('Error generating PDF. Please try again.');
+            downloadButton.disabled = false;
+            downloadButton.textContent = 'Download Roadmap as PDF';
+            document.body.removeChild(tempContainer); // Cleanup
+        });
+
+    } catch (error) {
+        console.error('Error in PDF download:', error);
+        alert('Error generating PDF. Please try again.');
+        downloadButton.disabled = false;
+        downloadButton.textContent = 'Download Roadmap as PDF';
+    }
+}
+
         // Initialize the roadmap viewer
         document.addEventListener('DOMContentLoaded', () => {
             new RoadmapViewer(data, 'roadmap');
