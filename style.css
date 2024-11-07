@@ -184,10 +184,22 @@ body{
         max-width: 100%;
     }
 
-    .feature-image {
-        width: 100%;
-        max-width: 500px;
-    }
+    
+}
+/* Thêm ảnh nền cho từng feature-image */
+.features-container .feature:nth-child(1) .feature-image {
+    background-image: url('img1.jpg');
+    background-size: 490px 440px;
+}
+
+.features-container .feature:nth-child(2) .feature-image {
+    background-image: url('img2.jpg');
+    background-size: 490px 450px;
+}
+
+.features-container .feature:nth-child(3) .feature-image {
+    background-image: url('img3.jpg');
+    background-size: 495px 450px;
 }
 .container {
     max-width: 800px;
