@@ -28,7 +28,7 @@ document.getElementById('text-tab').classList.remove('active');
 
 
 // Thay YOUR_API_KEY_HERE bằng API key của bạn
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
     
 let userAnswers = [];
 let quizData = [];
