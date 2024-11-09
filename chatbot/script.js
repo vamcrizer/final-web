@@ -4,7 +4,7 @@ const chatContainer = document.querySelector(".chat-container");
 const deleteButton = document.querySelector("#delete-btn");
 
 let userText = null;
-const API_KEY = "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"; // Paste your API key here
+const API_KEY = "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"; // Paste your API key here
 
 const loadDataFromLocalstorage = () => {
     // Load saved chats and apply default light theme
