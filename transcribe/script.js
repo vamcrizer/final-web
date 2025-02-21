@@ -299,7 +299,7 @@ function showTypingIndicator() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
+                    'Authorization': 'Bearer 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'
                 },
                 body: JSON.stringify({
                     model: 'gpt-4o-mini',
@@ -411,7 +411,7 @@ fixTextButton.addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 model: 'gpt-4o-mini',
