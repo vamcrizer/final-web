@@ -27,7 +27,7 @@ document.getElementById('text-tab').classList.remove('active');
 });
 
 // Replace with your OpenAI API key
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 const fileInput = document.getElementById('file-input');
 const uploadArea = document.getElementById('upload-area');
 const fileInfo = document.getElementById('file-info');
