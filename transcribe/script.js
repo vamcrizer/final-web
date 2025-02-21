@@ -299,7 +299,7 @@ function showTypingIndicator() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
+                    'Authorization': 'Bearer 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'
                 },
                 body: JSON.stringify({
                     model: 'gpt-4o-mini',
@@ -411,7 +411,7 @@ fixTextButton.addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 model: 'gpt-4o-mini',
